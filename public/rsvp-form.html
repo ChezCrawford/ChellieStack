@@ -1,0 +1,40 @@
+<form name="rsvpForm" ng-submit="rsvpForm.$valid && rsvpCtrl.addRsvp()" ng-hide="submitSuccess" novalidate>
+    <!-- Review Input -->
+  <fieldset class="form-group">
+  <h4>Rsvp</h4>
+    <select ng-model="rsvp.attending" required class="form-control" ng-options="key as value for (key, value) in {true: 'Yes',false: 'No'}" title="Attending">
+      <option value="">Will you be attending?</option>
+    </select>
+  </fieldset>
+  <fieldset class="form-group">
+    <h4>Guests</h4>
+    <div ng-repeat="guest in rsvp.guests" class="guest">
+      <input type="text" ng-model="guest.name" required class="form-control" placeholder="Guest name"></input>
+    </div>
+  </fieldset>
+  <div class="container row">
+      <div>Add additional guests</div>
+      <button class="btn btn-sm" ng-click="removeGuest()">
+        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+      </button>
+      <button class="btn btn-sm" ng-click="addGuest()">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      </button>
+  </div>
+  <fieldset class="form-group">
+    <h4>Contact</h4>
+    <input ng-model="rsvp.createdBy" ng-model-options="{updateOn: 'blur'}" required type="email" class="form-control" placeholder="jimmyDean@example.org" title="Email"></input>
+  </fieldset>
+
+  <fieldset class="form-group" ng-show="rsvp.attending === 'true'">
+    <h4>Shuttle (Optional)</h4>
+    <div>There will be a shuttle to the wedding venue which will pick up from and return to the Blue Ridge Lodge. </div>
+    <select ng-model="rsvp.shuttleInterest" class="form-control" ng-options="value for value in ['Yes','No', 'Maybe']" title="Attending">
+      <option value="">Are you interested in taking the shuttle?</option>
+    </select>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <input type="submit" class="btn pull-right" ng-class="{'btn-success': rsvpForm.$valid}" value="Submit Rsvp"></input>
+  </fieldset>
+</form>
