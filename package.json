@@ -4,17 +4,18 @@
   "description": "The Chellie Wedding Website",
   "private": true,
   "scripts": {
+    "postinstall": "bower install",
     "start": "node server",
     "test": "karma start karma.conf.js"
   },
   "dependencies": {
-    "body-parser": "~1.13.1",
-    "express": "~4.13.0",
-    "mongoose": "~4.0.6",
-    "morgan": "~1.6.0"
+    "body-parser": "1.17.2",
+    "express": "4.15.3",
+    "mongoose": "4.11.4",
+    "morgan": "1.8.2"
   },
   "devDependencies": {
-    "jasmine-core": "^2.3.4",
+    "jasmine-core": "2.6.4",
     "karma": "^0.13.3",
     "karma-chrome-launcher": "^0.2.0",
     "karma-jasmine": "^0.3.6"
